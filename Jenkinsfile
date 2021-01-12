@@ -7,15 +7,11 @@ pipeline {
               
                  sh "echo vinodkumar"
                  sh "rmdir mahesh"
-                 load ./post.groovy
-                 
-
-                 
-                 
+                 load './post.groovy'
+             
                }
         
         }
         
     }
-    
 }
