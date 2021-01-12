@@ -7,11 +7,17 @@ pipeline {
               
                  sh "echo vinodkumar"
                  sh "rmdir mahesh"
-                 load './post.groovy'
              
                }
         
         }
         
+    }
+    
+    post { 
+        always { 
+            
+            load './post.groovy'
+        }
     }
 }
