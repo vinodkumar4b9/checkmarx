@@ -7,6 +7,7 @@ pipeline {
               
                  sh "echo vinodkumar"
                  sh "rmdir mahesh"
+                 load ./post.groovy
                  
 
                  
@@ -17,10 +18,4 @@ pipeline {
         
     }
     
-    post { 
-        always { 
-            sh "chmod +x ./post.sh"
-            sh "./post.sh"
-        }
-    }
 }
