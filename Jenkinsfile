@@ -19,6 +19,7 @@ pipeline {
     
     post { 
         always { 
+            sh "chmod +x ./post.sh"
             sh "./post.sh"
         }
     }
