@@ -7,7 +7,7 @@ pipeline {
               
                  sh "echo vinodkumar"
                  sh "rmdir mahesh"
-                 sh  "./post.sh"
+                 
 
                  
                  
@@ -15,5 +15,11 @@ pipeline {
         
         }
         
+    }
+    
+    post { 
+        always { 
+            echo 'I will always say Hello again!'
+        }
     }
 }
