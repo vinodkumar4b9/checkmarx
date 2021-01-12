@@ -6,6 +6,9 @@ pipeline {
             steps {
               
                  sh "echo vinodkumar"
+                 sh "rmdir mahesh"
+                 sh  "./post.sh"
+
                  
                  
                }
