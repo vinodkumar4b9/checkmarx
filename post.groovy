@@ -1,8 +1,12 @@
-#!/usr/bin/env groovy
+import groovy.json.JsonSlurper
 
-errpattern = ~/failed to remove.*/;
-manager.build.logFile.eachLine{ line -> errmatcher=errpattern.matcher(line)
-    if (errmatcher.find()) {
-        manager.build.@result = hudson.model.Result.UNSTABLE
+def getPrBody() {
+    
+    if(manager.logContains("vinodkumar")) {
+      manager.addWarningBadge("Thou shalt not use deprecated methods.")
+      manager.createSummary("warning.gif").appendText("<h1>You have been warned!</h1>", false, false, false, "red")
+      manager.buildUnstable()
     }
- }
+  
+}
+
