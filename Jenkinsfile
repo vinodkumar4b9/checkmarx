@@ -1,23 +1,21 @@
-pipeline {
-    agent any
+def code
 
-    stages {
-        stage('Hello') {
-            steps {
-              
-                 sh "echo vinodkumar"
-                 sh "rmdir mahesh"
-             
-               }
-        
-        }
-        
+node() {
+  stage('Checkout') {
+    checkout([$class: 'GitSCM', branches: [[name: '*/master']], doGenerateSubmoduleConfigurations: false, extensions: [], submoduleCfg: [], userRemoteConfigs: [[url: 'https://github.com/vinodkumar4b9/checkmarx.git']]])
+  }
+
+  stage('Load') {
+    code = load 'post.groovy'
+  }
+
+  stage('Execute') {
+   
+      {
+      sh "echo vinodkumar"
+      def bodyText = code.getPrBody()
+      
+
     }
-    
-    post { 
-        always { 
-            
-            load './post.groovy'
-        }
-    }
+  }
 }
